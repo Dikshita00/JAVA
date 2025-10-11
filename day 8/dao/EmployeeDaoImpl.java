@@ -1,0 +1,59 @@
+package com.day8.dao;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import com.day8.beans.Employee;
+
+public class EmployeeDaoImpl implements EmployeeDao {
+    static List<Employee> elist;
+
+    static {
+        elist = new ArrayList<>();
+        elist.add(new Employee(100, "Manjiri", 45678, LocalDate.of(2024, 11, 12)));
+        elist.add(new Employee(101, "Gauri", 55678, LocalDate.of(2023, 11, 12)));
+        elist.add(new Employee(103, "Kanchan", 35678, LocalDate.of(2020, 11, 12)));
+    }
+
+    @Override
+    public boolean save(Employee e) {
+        elist.add(e);
+        return true;
+    }
+
+    @Override
+    public List<Employee> findAll() {
+        return elist;
+    }
+
+    @Override
+    public Employee findById(int eid) {
+        int pos = elist.indexOf(new Employee(eid, null, eid, null));
+        if (pos != -1) {
+            return elist.get(pos);
+        }
+        return null;
+    }
+
+    @Override
+    public boolean removeById(int eid) {
+        return elist.remove(new Employee(eid, null, eid, null));
+    }
+
+    @Override
+    public List<Employee> findByName(String nm) {
+        List<Employee> temp = elist.stream()
+            .filter(emp -> emp.getEname().equals(nm))
+            .collect(Collectors.toList());
+
+        return temp.isEmpty() ? null : temp;
+    }
+
+	@Override
+	public boolean save(com.demo.beans.Employee e) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}

@@ -1,0 +1,7 @@
+package com.day7.interfaces;
+
+public interface I2 {
+	void m2(int x);
+	void m3();
+
+}
