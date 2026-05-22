@@ -1,5 +1,26 @@
 package com.entity;
-
+/*
+  Q1. Design Java application for the following:  
+Create a class Vehicle to store following details 
+vehicleId, vehicleName, price, status 
+Vehicles are of 2 types 
+Electric Vehicle, Petrol Vehicle 
+For Electric Vehicle store batteryCapacity, chargingTime 
+For Petrol Vehicle add fuelType and mileage 
+Store details of vehicles in a HashSet, 2 vehicles cannot have same vehicleId. 
+Display following menu 
+a. Add new Vehicle 
+b. Remove vehicle using vehicleId 
+c. Update vehicle price 
+d. Sell vehicle 
+e. Purchase vehicle 
+f. Display all vehicles 
+g. Display vehicles by type 
+h. Display vehicles within price range 
+i. Sort vehicles by price 
+j. Search vehicle by name 
+k. Exit
+ */
 public class Vehicle {
     private int vehicleId;
     private String vehicleName;
